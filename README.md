@@ -1,23 +1,23 @@
-Привет! Меня зовут Юлия и я junior аналитик. Ниже вы найдёте несколько моих проектов, которые я выполняла во время учёбы и практики.
+Hello! My name is Yulia, and I am a data analyst. This portfolio contains projects where I apply SQL and Excel to solve various business tasks.
 
-## Навыки и технологии
-+ Инструменты анализа данных: ``SQL``, ``Excel``, ``Pyton``
-+ Системы управления базами данных: ``PostgreSQL``
-+ Средства визуализации данных: ``PowerBi``
+## Skills and Technologies
++ Data analysis tools: ``SQL``, ``Excel``, ``Pyton``
++ Database management systems: ``PostgreSQL``
++ Data visualization tools: ``PowerBi``
 
-## Проекты
-Калькулятор юнит-экономики онлайн-кинотеатра: > <a href="https://docs.google.com/spreadsheets/d/1M3jp73s1J8QSszTQYZVOaz51V-X2HwfwxG-dq2270yE/edit?usp=sharing">Ссылка на проект</a>
+## Projects
+Unit Economics Calculator for an Online Cinema: > <a href="https://docs.google.com/spreadsheets/d/1M3jp73s1J8QSszTQYZVOaz51V-X2HwfwxG-dq2270yE/edit?usp=sharing">Project Link</a>
 
-<ol>Для создания калькулятора я собрала все сырые финансовые показатели и на их основе расчитала новые ключевые юниты, LTR, CAC, LT, с их помощью мне удалось решить поставленную задачу, найти Retention, в сравнении показать как было и как может быть не только на цифрах, но и на графиках.</ol> 
+<ol>To create this calculator, I collected all the raw financial indicators and, based on them, calculated new key units: LTR, CAC, LT. With their help, I managed to solve the given task, find Retention, and in comparison, show what was before and what it might look like not only in numbers but also in charts.</ol> 
 
-<ol>Итог: Функциональный калькулятор где от любых заданых изменений будут отображаться возможные прогнозы на юнит-экономику.</ol>
+<ol>Result: A functional calculator where forecasts for unit economics are displayed based on any given changes.</ol>
 
-Моделирование изменения балансов студентов: > <a href="https://github.com/Yuklem/portfolio-analytics/tree/main/SQL_project">Ссылка на проект</a>
+Modeling Student Balance Changes: > <a href="https://github.com/Yuklem/portfolio-analytics/tree/main/SQL_project">Project Link</a>
 
-<ol>Я написала несколько запросов СТЕ и ссылалась на них для получения общей картины всех балансов за отведённый год, балансов транзакций, остаточных балансов, балансов купленных уроков и их коммулятивных(накопительных) значений, в конце я визуализировала данные в Metabase и смогла отследить все изменения в динамике.</ol>
+<ol>I wrote several CTE queries and used them to obtain an overall picture of all balances for a given year: transaction balances, remaining balances, purchased lesson balances, and their cumulative values. In the end, I visualized the data in Metabase and was able to track all changes dynamically.</ol>
 
-<ol>Итог: На этапе визуализации было замечен разрыв между транзакциями и пройденными уроками, появились вопросы к дата инженерам на предмет наличия аномально-отрицательных или пустых значений.</ol>
+<ol>Result: During the visualization stage, I noticed gaps between transactions and completed lessons, raised these issues with data engineers regarding anomalous negative or empty values.</ol>
 
-## Контактная информация
-- Email: vavilova.julia214@gmail.com
-- Telegram: https://t.me/JLKlimova
+## Contact Information
+- Email: vavilova.julia2000@gmail.com
+- Linkedin: https://www.linkedin.com/in/yuliia-klemonova-05383b364/
