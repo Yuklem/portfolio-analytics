@@ -1,4 +1,4 @@
--- Первая транзакции для каждого студента.
+-- First transaction for each student.
 with first_payments as (
     select user_id
          , min (transaction_datetime::date) as first_payment_date  
@@ -6,20 +6,20 @@ with first_payments as (
     where status_name = 'success'
     group by user_id
     ), 
--- Уникальные даты без времени за 16 год.
+-- Unique dates without time for the year 2016.
 all_dates as (
     select distinct class_start_datetime::date as dt 
     from skyeng_db.classes c
     where class_start_datetime >= '2016-01-01' and class_start_datetime <= '2016-12-31'
     ), 
--- Все даты жизни студента после того, как произошла его первая транзакция.
+-- All dates of a student’s activity after their first transaction occurred.
 all_dates_by_user as (  
     select fp.user_id, ad.dt
     from first_payments fp 
     join all_dates ad 
      on ad.dt >= fp.first_payment_date
     ), 
--- Все изменения балансов, сколько уроков начисленно или списано.
+-- All balance changes: how many lessons were credited or deducted.
 payments_by_dates as ( 
     select user_id
          , transaction_datetime::date as payment_date
@@ -29,7 +29,7 @@ payments_by_dates as (
       and status_name = 'success' 
     group by user_id, payment_date
     ), 
--- Баланс студентов, который сформирован только транзакциями, пустые значения заменим на нули.
+-- Student balances formed only by transactions; replace empty values with zeros.
 payments_by_dates_cumsum as (    
     select distinct a.user_id
          , a.dt 
@@ -40,7 +40,7 @@ payments_by_dates_cumsum as (
     on p.user_id = a.user_id
     and p.payment_date = a.dt
     ), 
--- Изменения балансов из-за прохождения уроков. classes умножим на -1, чтобы отразить, что - — это списания с баланса.
+-- Balance changes due to completed lessons. Multiply classes by -1 to reflect that “–” means deductions from the balance.
 classes_by_dates as ( 
     select user_id
          , date_trunc('day', class_start_datetime) as class_date
@@ -50,7 +50,7 @@ classes_by_dates as (
     and class_type != 'trial'
     group by user_id, class_date
     ), 
--- СТЕ для хранения кумулятивной суммы количества пройденных уроков.
+-- CTE for storing the cumulative sum of completed lessons.
 classes_by_dates_dates_cumsum as (
     select ad.user_id
          , ad.dt 
@@ -61,7 +61,7 @@ classes_by_dates_dates_cumsum as (
     on ad.user_id = cd.user_id
     and ad.dt = cd.class_date
     ), 
--- Все балансы студентов
+-- All student balances
 balances as ( 
   select cdc.user_id
        , cdc.dt
@@ -84,3 +84,4 @@ balances as (
     from balances 
     group by dt 
     order by dt
+
